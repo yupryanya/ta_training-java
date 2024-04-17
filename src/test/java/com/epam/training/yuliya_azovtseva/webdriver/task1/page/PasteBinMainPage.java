@@ -12,12 +12,17 @@ public class PasteBinMainPage {
 
     @FindBy(id = "postform-text")
     private WebElement textInput;
+
     @FindBy(id = "select2-postform-expiration-container")
     private WebElement expirationDropdown;
+
     @FindBy(id = "postform-name")
     private WebElement nameInput;
+
     @FindBy(css = "[type='submit']")
     private WebElement submitButton;
+
+    private final String DROPDOWN_OPTION_BY_TEXT = "//li[@class='select2-results__option' and text() = '%s']";
 
     public PasteBinMainPage(WebDriver driver) {
         this.driver = driver;
@@ -36,7 +41,7 @@ public class PasteBinMainPage {
 
     public PasteBinMainPage setPasteExpiration(String value) {
         expirationDropdown.click();
-        WebElement expirationOptions = driver.findElement(By.xpath(String.format("//li[contains(text(), '%s')]", value)));
+        WebElement expirationOptions = driver.findElement(By.xpath(String.format(DROPDOWN_OPTION_BY_TEXT, value)));
         expirationOptions.click();
         return this;
     }
@@ -46,7 +51,7 @@ public class PasteBinMainPage {
         return this;
     }
 
-    public void submitButtonClick() {
+    public void clickSubmitButton() {
         submitButton.click();
     }
 }

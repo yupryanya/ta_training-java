@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestBase {
     protected static WebDriver driver;
-    PasteBinMainPage pasteBinMainPage = new PasteBinMainPage(driver);
+    protected PasteBinMainPage pasteBinMainPage = new PasteBinMainPage(driver);
 
     @BeforeAll
     static void init() {
