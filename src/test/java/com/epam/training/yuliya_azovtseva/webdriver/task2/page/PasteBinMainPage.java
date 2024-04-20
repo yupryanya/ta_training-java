@@ -18,7 +18,7 @@ public class PasteBinMainPage extends BasePage {
     private WebElement syntaxDropdown;
 
     @FindBy(id = "postform-name")
-    private WebElement nameInput;
+    private WebElement titleInput;
 
     @FindBy(css = ".btn.-big")
     private WebElement submitButton;
@@ -34,8 +34,8 @@ public class PasteBinMainPage extends BasePage {
         return this;
     }
 
-    public PasteBinMainPage setPasteName(String value) {
-        nameInput.sendKeys(value);
+    public PasteBinMainPage setPasteTitle(String value) {
+        titleInput.sendKeys(value);
         return this;
     }
 
