@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class PasteBinMainPage extends BasePage {
     private static final String URL = "https://pastebin.com";
@@ -23,7 +27,7 @@ public class PasteBinMainPage extends BasePage {
     @FindBy(css = ".btn.-big")
     private WebElement submitButton;
 
-    String dropdownOptionByText = "//li[@class='select2-results__option' and text() = '%s']";
+    private String dropdownOptionByText = "//li[@class='select2-results__option' and text() = '%s']";
 
     public PasteBinMainPage(WebDriver driver) {
         super(driver);
@@ -62,6 +66,8 @@ public class PasteBinMainPage extends BasePage {
     private void selectDropdownOption(WebElement dropdown, String value) {
         dropdown.click();
         WebElement option = driver.findElement(By.xpath(String.format(dropdownOptionByText, value)));
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.elementToBeClickable(option));
         option.click();
     }
 }

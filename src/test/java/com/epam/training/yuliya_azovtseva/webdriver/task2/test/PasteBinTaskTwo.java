@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PasteBinTaskTwo extends BaseTest {
     String pasteCode = """
-                git config --global user.name  "New Sheriff in Town"
-                git reset $(git commit-tree HEAD^{tree} -m "Legacy code")
-                git push origin master --force""";
+            git config --global user.name  "New Sheriff in Town"
+            git reset $(git commit-tree HEAD^{tree} -m "Legacy code")
+            git push origin master --force""";
     String pasteTitle = "how to gain dominance among developers";
     String pasteSyntax = "Bash";
     String pasteExpired = "10 Minutes";
