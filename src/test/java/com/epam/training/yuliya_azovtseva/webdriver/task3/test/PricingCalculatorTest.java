@@ -27,7 +27,7 @@ public class PricingCalculatorTest extends BaseTest {
         String tempEmail = yopmailEmailGeneratorPage.generateRandomEmailInNewTab();
         googleCloudPricingCalculatorPage.clickEmailEstimateButton();
         emailEstimateFormPage.sendWithEmailOnly(tempEmail);
-        yopmailMainPage.openPage().loginWithEmailCached();
+        yopmailMainPage.openPage().loginWithEmail(tempEmail);
         String emailPrice = yopmailMailboxPage.getGoogleLetterCost();
 
         assertEquals(estimatedFormPrice, emailPrice);
