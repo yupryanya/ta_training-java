@@ -18,7 +18,7 @@ public class PricingCalculatorTest extends BaseTest {
                 .setSeries("N1")
                 .setMachineType("n1-standard-8")
                 .selectAddGPUsCheckbox()
-                .setAddGpu("NVIDIA Tesla T4", 1)
+                .setAddGpu("NVIDIA Tesla T4", 1) //option NVIDIA Tesla V100 unavailable
                 .setLocalSsd("2x375 GB")
                 .setCommittedUsage("1 Year")
                 .setDatacenterLocation("Frankfurt")
